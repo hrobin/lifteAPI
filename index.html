@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Get your ski on!</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Donegal+One' rel='stylesheet' type='text/css'>
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<style type="text/css">
+		#map {
+			width: 50%;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+
+		<h1>Lifte</h1>
+		<h3>Looking for the best skiing in your area? <em>We've got you covered.</em></h3>
+
+	<div class="row">
+		<form id="postal-form" class="form-wrapper cf">
+       		<input id="postal-code" type="text" placeholder="My zip code is..." required>
+        	<button id="postal-submit" type="submit">Let's go!</button>
+    	</form>
+    </div>
+
+		<div id="map"></div>
+
+		<div class="infoBlock offset-by-eleven">
+			<div id="weather"></div>
+			<div id="info"></div>
+		</div>
+
+	</div><!-- container -->
+
+	<script id="venueTemplate" type="text/template">
+		<h2><%= venue.name %></h2>
+		<p>
+		<% for ( var key in venue.status ) { %>
+			<% if (venue.status.hasOwnProperty(key)) { %>
+	    	<strong><%= key %></strong> <%= venue.status[key] %><br>
+		  	<% } %>
+		<% } %>
+		</p>
+	</script>
+
+	<script id="weatherTemplate" type="text/template">
+		<div id="number">
+			<h2><%= weather.feelslike_f %></h2>
+		</div>
+		<img src="<%= weather.icon_url %>" alt="">
+	</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE8-440fub-r_G6cFcrcnwdT0XkaLdDJ4&sensor=true"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="scripts/liftie.js"></script>
+<script src="scripts/script.js"></script>
+<!-- End Document
+================================================== -->
+</body>
+</html>
